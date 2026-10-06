@@ -1,5 +1,19 @@
 <h1>マイページ</h1>
 
-<p>ログイン中のユーザー：<%= current_user.name %></p>
+<div>
+  <p>
+    <strong>ユーザー名：</strong>
+    <%= @user.name %>
+  </p>
 
-<%= link_to "トップページ", root_path %>
+  <p>
+    <strong>自己紹介：</strong>
+    <%= @user.introduction %>
+  </p>
+
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+</div>
+
+<h2>投稿したプレゼント</h2>
+
+<p>まだ投稿はありません。</p>
