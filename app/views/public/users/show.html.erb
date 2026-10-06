@@ -1,0 +1,23 @@
+<h1>ユーザー詳細</h1>
+
+<p>
+  <strong>ユーザー名：</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>自己紹介：</strong>
+  <%= @user.introduction %>
+</p>
+
+<% if @user == current_user %>
+  <%= link_to "プロフィールを編集", edit_user_path(@user) %>
+
+  <%= link_to "退会する",user_path(@user),
+                  data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "本当に退会しますか？"
+                  } %>
+<% end %>
+
+<%= link_to "ユーザー一覧へ", users_path %>
