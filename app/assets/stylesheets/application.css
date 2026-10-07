@@ -1,10 +1,50 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+body {
+  background-color: #f8f4d5;
+  color: #3D3D3D;
+}
+
+/* ヘッダー */
+.gift-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #F3E8E2;
+}
+
+/* ロゴ */
+.gift-logo {
+  color: #5C9BBC;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.gift-logo:hover {
+  color: #E77C7C;
+}
+
+/* メインボタン */
+.btn-gift {
+  background-color: #5C9BBC;
+  color: #FFFFFF;
+  border: 1px solid #5C9BBC;
+  border-radius: 20px;
+  padding: 8px 18px;
+}
+
+.btn-gift:hover {
+  background-color: #4B89AA;
+  border-color: #4B89AA;
+  color: #FFFFFF;
+}
+
+/* 枠線ボタン */
+.btn-gift-outline {
+  background-color: #FFFFFF;
+  color: #5C9BBC;
+  border: 1px solid #5C9BBC;
+  border-radius: 20px;
+  padding: 8px 18px;
+}
+
+.btn-gift-outline:hover {
+  background-color: #5C9BBC;
+  color: #FFFFFF;
+}
