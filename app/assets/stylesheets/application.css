@@ -48,3 +48,27 @@ body {
   background-color: #5C9BBC;
   color: #FFFFFF;
 }
+
+.gift-card {
+  background-color: #FFFFFF;
+  padding: 12px 12px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(61, 61, 61, 0.12);
+}
+
+.gift-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid #F0ECE8;
+}
+
+.gift-card-title {
+  color: #5C9BBC;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gift-card-title:hover {
+  color: #4B89AA;
+}

@@ -10,4 +10,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :age, presence: true
   validates :price, presence: true
+
+  has_one_attached :image
 end

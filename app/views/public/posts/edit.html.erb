@@ -3,6 +3,16 @@
 <%= form_with model: @post do |f| %>
 
   <div>
+    <%= f.label :image, "プレゼント画像" %>
+    <% if @post.image.attached? %>
+      <div>
+        <%= image_tag @post.image, size: "150x150" %>
+      </div>
+    <% end %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div>
     <%= f.label :gift_name, "プレゼント名" %>
     <%= f.text_field :gift_name %>
   </div>
