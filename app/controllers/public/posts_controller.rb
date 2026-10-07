@@ -1,4 +1,7 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -17,7 +20,7 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,7 +33,7 @@ class Public::PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -41,6 +44,13 @@ class Public::PostsController < ApplicationController
   end
 
   private
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
+  end
 
   def post_params
     params.require(:post).permit(:gift_name, :content, :rating, :age, :price)

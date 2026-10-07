@@ -1,0 +1,29 @@
+<h1>投稿編集</h1>
+
+<%= form_with model: @post do |f| %>
+
+  <div>
+    <%= f.label :gift_name, "プレゼント名" %>
+    <%= f.text_field :gift_name %>
+  </div>
+
+  <div>
+    <%= f.label :content, "説明文" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.label :age, "プレゼントを受け取った人の年齢" %>
+    <%= f.number_field :age %>歳
+  </div>
+
+  <div>
+    <%= f.label :price, "金額" %>
+    <%= f.number_field :price %>円
+  </div>
+  
+  <div>
+    <%= f.submit "更新する" %>
+  </div>
+
+<% end %>

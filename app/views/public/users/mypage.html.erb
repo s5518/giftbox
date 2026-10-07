@@ -16,4 +16,10 @@
 
 <h2>投稿したプレゼント</h2>
 
-<p>まだ投稿はありません。</p>
+<% @posts.each do |post| %>
+  <div>
+    <%= link_to post.gift_name, post_path(post) %>
+    <p>受け取った人の年齢：<%= post.age %>歳</p>
+    <p>金額：<%= post.price %>円</p>
+  </div>
+<% end %>

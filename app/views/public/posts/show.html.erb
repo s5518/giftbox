@@ -1,0 +1,39 @@
+<h1>投稿詳細</h1>
+
+<p>
+  <strong>プレゼント名：</strong>
+  <%= @post.gift_name %>
+</p>
+
+<p>
+  <strong>説明：</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>受け取った人の年齢：</strong>
+  <%= @post.age %>歳
+</p>
+
+<p>
+  <strong>金額：</strong>
+  <%= @post.price %>円
+</p>
+
+<p>
+  <strong>投稿者：</strong>
+  <%= @post.user.name %>
+</p>
+
+<% if @post.user == current_user %>
+  <%= link_to "編集する", edit_post_path(@post) %>
+
+  <%= link_to "削除する",
+              post_path(@post),
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "本当に削除しますか？"
+              } %>
+<% end %>
+
+<%= link_to "投稿一覧へ", posts_path %>
