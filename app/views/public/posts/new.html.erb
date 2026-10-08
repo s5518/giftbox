@@ -1,40 +1,10 @@
-<h1>新規投稿</h1>
-
-<% if @post.errors.any? %>
-  <div>
-    <h2><%= @post.errors.count %>件のエラーがあります</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="container py-5">
+  <div class="row justify-content-center align-items-center mb-5">
+    <div class="col-md-8">
+      <h2 class="ms-2 mb-4">新規投稿</h2>
+      <div class="gift-panel">
+        <%= render "form", post: @post %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= form_with model: @post do |f| %>
-
-  <div>
-    <%= f.label :gift_name, "プレゼント名" %>
-    <%= f.text_field :gift_name %>
-  </div>
-
-  <div>
-    <%= f.label :content, "説明文" %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div>
-    <%= f.label :age, "プレゼントを受け取った人の年齢" %>
-    <%= f.number_field :age %>歳
-  </div>
-
-  <div>
-    <%= f.label :price, "金額" %>
-    <%= f.number_field :price %>円
-  </div>
-
-  <div>
-    <%= f.submit "投稿する" %>
-  </div>
-
-<% end %>
+</div>

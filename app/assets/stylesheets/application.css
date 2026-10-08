@@ -112,3 +112,10 @@ body {
   border: 1px solid #F0ECE8;
   border-radius: 8px;
 }
+
+.image {
+  max-width: 120px;
+  object-fit: contain;
+  border: 1px solid #F0ECE8;
+  border-radius: 4px;
+}

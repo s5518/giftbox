@@ -1,0 +1,39 @@
+<%= form_with model: post do |f| %>
+
+  <div class="text-center mb-4">
+    <% if @post.image.attached? %>
+      <%= image_tag @post.image, class: "image"%>
+    <% else %>
+      <div class="profile-image-placeholder mx-auto"></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :image, "プレゼント画像" %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :gift_name, "プレゼント名" %>
+    <%= f.text_field :gift_name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :content, "レビュー内容" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :age, "受け取った人の年齢" %>
+    <%= f.number_field :age, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :price, "金額" %>
+    <%= f.number_field :price, class: "form-control" %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit post.new_record? ? "投稿する" : "変更を保存", class: "btn btn-gift" %>
+  </div>
+<% end %>

@@ -7,7 +7,7 @@
 
           <div class="text-center mb-4">
             <% if @user.profile_image.attached? %>
-              <%= image_tag @user.profile_image, class: "profile-image", size: "120x120" %>
+              <%= image_tag @user.profile_image, class: "image" %>
             <% else %>
               <div class="profile-image-placeholder mx-auto"></div>
             <% end %>
