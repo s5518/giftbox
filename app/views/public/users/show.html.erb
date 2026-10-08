@@ -1,34 +1,56 @@
-<h1>ユーザー詳細</h1>
+<div class="container py-5">
+  <h2 class="ms-5 mb-5">ユーザー詳細</h2>
 
-<p>
-  <strong>ユーザー名：</strong>
-  <%= @user.name %>
-</p>
+  <div class="row justify-content-center align-items-center mb-5">
+    <div class="col-md-3 text-center">
+      <div class="profile-image-placeholder mx-auto">
+        <% if @user.profile_image.attached? %>
+          <%= image_tag @user.profile_image, size: "160x160" %>
+        <% end %>
+      </div>
+    </div>
 
-<p>
-  <strong>自己紹介：</strong>
-  <%= @user.introduction %>
-</p>
+    <div class="col-md-5">
+      <h3 class="mb-3"><%= @user.name %></h3>
 
-<% if @user == current_user %>
-  <%= link_to "プロフィールを編集", edit_user_path(@user) %>
+      <p>
+        <%= @user.introduction.presence || "自己紹介はまだありません" %>
+      </p>
 
-  <%= link_to "退会する",
-              user_path(@user),
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "本当に退会しますか？"
-              } %>
-<% end %>
-
-<h2>投稿したプレゼント</h2>
-
-<% @posts.each do |post| %>
-  <div>
-    <%= link_to post.gift_name, post_path(post) %>
-    <p>受け取った人の年齢：<%= post.age %>歳</p>
-    <p>金額：<%= post.price %>円</p>
+    </div>
   </div>
-<% end %>
 
-<%= link_to "ユーザー一覧へ", users_path %>
+  <h2 class="ms-5 mb-4">投稿したプレゼント</h2>
+
+  <div class="row g-4">
+    <% @posts.each do |post| %>
+      <div class="col-md-3">
+        <div class="gift-card p-2">
+
+          <!-- 画像部分 -->
+          <% if post.image.attached? %>
+            <%= image_tag post.image, class: "gift-card-image" %>
+          <% else %>
+            <div class="gift-card-no-image">
+              <%= image_tag "image.PNG", alt: "NO IMAGE", class: "gift-card-image" %>
+            </div>
+          <% end %>
+
+          <!-- アイテム説明部分 -->
+          <div class="gift-card-body ms-2">
+
+            <h5 class="mt-2">
+              <%= link_to post.gift_name,
+                          post_path(post),
+                          class: "gift-card-title" %>
+            </h5>
+
+            <p>受け取った人：<%= post.age %>歳</p>
+            <p>¥<%= number_with_delimiter(post.price) %></p>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

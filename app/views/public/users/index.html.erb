@@ -1,7 +1,30 @@
-<h1>ユーザー一覧</h1>
+<div class="container py-5">
+  <h2 class="ms-5 mb-5">ユーザー一覧</h2>
 
-<% @users.each do |user| %>
-  <div>
-    <%= link_to user.name, user_path(user) %>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <% @users.each do |user| %>
+        <div class="d-flex align-items-center gap-3 mb-3 p-3 user-card">
+
+          <% if user.profile_image.attached? %>
+            <%= image_tag user.profile_image, class: "user-list-image" %>
+          <% else %>
+            <div class="user-list-image-placeholder"></div>
+          <% end %>
+
+          <div>
+            <h5>
+              <%= link_to user.name, user_path(user), class: "gift-card-title" %>
+            </h5>
+            <p class="mb-0">
+              <%= user.introduction.presence || "自己紹介はまだありません" %>
+            </p>
+          </div>
+
+        </div>
+      <% end %>
+
+    </div>
   </div>
-<% end %>
+</div>
