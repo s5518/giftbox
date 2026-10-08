@@ -20,6 +20,46 @@ body {
   color: #E77C7C;
 }
 
+.gift-top-title {
+  color: #5C9BBC;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.gift-top-description {
+  color: #666666;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.gift-about-icon {
+  color: #5C9BBC;
+}
+
+.gift-about-title {
+  color: #5C9BBC;
+  font-weight: bold;
+}
+
+.gift-about-description {
+  color: #666666;
+  line-height: 2;
+}
+
+.gift-icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #F7F1EA;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5C9BBC;
+  font-size: 28px;
+}
+
 /* メインボタン */
 .btn-gift {
   background-color: #5C9BBC;

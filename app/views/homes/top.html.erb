@@ -1,1 +1,26 @@
-<h1>Topページです</h1>
+<div class="container py-5">
+
+  <div class="text-center py-5">
+
+    <h1 class="gift-top-title mb-4">
+      <i class="fa-solid fa-gift"></i>
+      GiftBox
+    </h1>
+
+    <h3 class="mb-4">
+      大切な人への贈り物に、ヒントを。
+    </h3>
+
+    <p class="gift-top-description mb-5">
+      もらって嬉しかった、贈って喜ばれた。<br>
+      そんなプレゼントの思い出をシェアするレビューサイトです。
+    </p>
+
+    <div class="d-flex justify-content-center gap-3">
+      <%= link_to "新規登録", new_user_registration_path, class: "btn btn-gift" %>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-gift-outline" %>
+    </div>
+
+  </div>
+
+</div>
