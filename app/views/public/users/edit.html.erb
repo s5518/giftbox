@@ -1,48 +1,48 @@
 <div class="container py-5">
   <div class="row justify-content-center align-items-center mb-5">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <h2 class="ms-2 mb-4">プロフィール編集</h2>
+      <div class="gift-panel">
+        <%= form_with model: @user do |f| %>
 
-      <%= form_with model: @user do |f| %>
+          <div class="text-center mb-4">
+            <% if @user.profile_image.attached? %>
+              <%= image_tag @user.profile_image, class: "profile-image", size: "120x120" %>
+            <% else %>
+              <div class="profile-image-placeholder mx-auto"></div>
+            <% end %>
+          </div>
 
-        <div class="text-center mb-4">
-          <% if @user.profile_image.attached? %>
-            <%= image_tag @user.profile_image, class: "profile-image", size: "120x120" %>
-          <% else %>
-            <div class="profile-image-placeholder mx-auto"></div>
-          <% end %>
+          <div class="mb-4">
+            <%= f.file_field :profile_image, class: "form-control", accept: "image/*" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :name, "ユーザー名", class: "form-label" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :introduction, "自己紹介", class: "form-label" %>
+            <%= f.text_area :introduction, class: "form-control", rows: 4 %>
+          </div>
+
+          <div class="text-center">
+            <%= f.submit "変更を保存", class: "btn btn-gift" %>
+          </div>
+
+        <% end %>
+
+        <div class="text-center mt-5">
+          <%= link_to "退会する",
+                      user_path(@user),
+                      data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "本当に退会しますか？"
+                      },
+                      class: "btn btn-outline-danger rounded-pill" %>
         </div>
-
-        <div class="mb-4">
-          <%= f.file_field :profile_image, class: "form-control", accept: "image/*" %>
-        </div>
-
-        <div class="mb-4">
-          <%= f.label :name, "ユーザー名", class: "form-label" %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-
-        <div class="mb-4">
-          <%= f.label :introduction, "自己紹介", class: "form-label" %>
-          <%= f.text_area :introduction, class: "form-control", rows: 4 %>
-        </div>
-
-        <div class="text-center">
-          <%= f.submit "変更を保存", class: "btn btn-gift" %>
-        </div>
-
-      <% end %>
-
-      <div class="text-center mt-5">
-        <%= link_to "退会する",
-                    user_path(@user),
-                    data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "本当に退会しますか？"
-                    },
-                    class: "btn btn-outline-danger rounded-pill" %>
       </div>
-
     </div>
   </div>
 </div>

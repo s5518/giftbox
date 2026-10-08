@@ -1,39 +1,57 @@
-<h1>投稿詳細</h1>
+<div class="container py-5">
+  <h2 class="ms-5 mb-4">投稿詳細</h2>
 
-<p>
-  <strong>プレゼント名：</strong>
-  <%= @post.gift_name %>
-</p>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
 
-<p>
-  <strong>説明：</strong>
-  <%= @post.content %>
-</p>
+      <div class="gift-panel">
 
-<p>
-  <strong>受け取った人の年齢：</strong>
-  <%= @post.age %>歳
-</p>
+        <div class="row align-items-center">
 
-<p>
-  <strong>金額：</strong>
-  <%= @post.price %>円
-</p>
+          <!-- 左側：プレゼント画像 -->
+          <div class="col-md-6">
+            <% if @post.image.attached? %>
+              <%= image_tag @post.image, class: "post-detail-image" %>
+            <% else %>
+              <%= image_tag "image.PNG", class: "post-detail-image" %>
+            <% end %>
+          </div>
 
-<p>
-  <strong>投稿者：</strong>
-  <%= @post.user.name %>
-</p>
+          <!-- 右側：プレゼント情報 -->
+          <div class="col-md-6">
+            <h3 class="mb-4"><%= @post.gift_name %></h3>
 
-<% if @post.user == current_user %>
-  <%= link_to "編集する", edit_post_path(@post) %>
+            <p>受け取った人：<%= @post.age %>歳</p>
+            <p>金額：¥<%= number_with_delimiter(@post.price) %></p>
+          </div>
 
-  <%= link_to "削除する",
-              post_path(@post),
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "本当に削除しますか？"
-              } %>
-<% end %>
+        </div>
 
-<%= link_to "投稿一覧へ", posts_path %>
+        <!-- 下側：レビュー -->
+        <div class="mt-4">
+          <h5>レビュー内容</h5>
+          <hr>
+          <p><%= simple_format(@post.content) %></p>
+        </div>
+
+        <p class="mt-4">
+          投稿者：<%= link_to @post.user.name, user_path(@post.user) %>
+        </p>
+
+        <% if @post.user == current_user %>
+          <div class="d-flex gap-3 mt-4">
+            <%= link_to "編集する", edit_post_path(@post), class: "btn btn-gift" %>
+            <%= link_to "削除する", post_path(@post),
+                        data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "本当に削除しますか？"
+                        },
+                        class: "btn btn-outline-danger rounded-pill" %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
