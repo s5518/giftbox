@@ -6,18 +6,18 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get "/mypage", to: "users#mypage", as: :mypage
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [ :index, :show, :edit, :update, :destroy ]
     resources :posts do
-      resource :bookmark, only: [:create, :destroy]
-      resources :comments, only: [:create, :destroy]
+      resource :bookmark, only: [ :create, :destroy ]
+      resources :comments, only: [ :create, :destroy ]
     end
-    resources :bookmarks, only: [:index]
+    resources :bookmarks, only: [ :index ]
   end
 
   namespace :admin do
     root "homes#top"
-    resources :users, only: [:index, :show, :destroy]
-    resources :posts, only: [:index, :show, :destroy]
+    resources :users, only: [ :index, :show, :destroy ]
+    resources :posts, only: [ :index, :show, :destroy ]
     resources :tags
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
