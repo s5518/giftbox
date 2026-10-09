@@ -66,3 +66,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
