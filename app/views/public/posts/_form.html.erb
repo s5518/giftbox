@@ -1,5 +1,16 @@
 <%= form_with model: post do |f| %>
 
+  <% if post.errors.any? %>
+    <div class="alert alert-danger">
+      <p>入力内容にエラーがあります。</p>
+      <ul class="mb-0">
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="text-center mb-4">
     <% if @post.image.attached? %>
       <%= image_tag @post.image, class: "image"%>

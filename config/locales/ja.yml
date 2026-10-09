@@ -1,0 +1,41 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "すでにログアウトしています。"
+
+    failure:
+      invalid: "メールアドレスまたはパスワードが正しくありません。"
+      unauthenticated: "ログインしてください。"
+      already_authenticated: "すでにログインしています。"
+
+  activerecord:
+    models:
+      user: ユーザー
+      post: 投稿
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+      post:
+        gift_name: プレゼント名
+        content: レビュー内容
+        age: 年齢
+        price: 金額
+
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      blank: "を入力してください"
+      taken: "はすでに使用されています"
+      too_short: "は%{count}文字以上で入力してください"
+      too_long: "は%{count}文字以内で入力してください"
+      invalid: "は正しくありません"
+      confirmation: "と確認用の入力が一致しません"
+
+  activemodel:
+    errors:
+      messages:
+        blank: "を入力してください"

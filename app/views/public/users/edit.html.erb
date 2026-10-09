@@ -5,6 +5,17 @@
       <div class="gift-panel">
         <%= form_with model: @user do |f| %>
 
+          <% if @user.errors.any? %>
+            <div class="alert alert-danger">
+              <p>入力内容にエラーがあります。</p>
+              <ul class="mb-0">
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
           <div class="text-center mb-4">
             <% if @user.profile_image.attached? %>
               <%= image_tag @user.profile_image, class: "image" %>
