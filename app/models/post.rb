@@ -12,4 +12,13 @@ class Post < ApplicationRecord
   validates :price, presence: true
 
   has_one_attached :image
+
+  def self.search_for(content)
+    return all if content.blank?
+
+    where(
+      "gift_name LIKE :keyword OR content LIKE :keyword",
+      keyword: "%#{content}%"
+    )
+  end
 end

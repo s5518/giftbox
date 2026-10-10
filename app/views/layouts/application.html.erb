@@ -28,6 +28,9 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <div class="search-area">
+      <%= render "public/searches/form" %>
+    </div>
 
     <% flash.each do |message_type, message| %>
       <% next if devise_controller? && controller_name == "sessions" && action_name == "new" && message_type.to_s == "alert" %>

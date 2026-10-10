@@ -75,4 +75,3 @@ sample_posts.each do |data|
 end
 
 puts "GiftBoxのサンプルデータを登録しました！"
-
