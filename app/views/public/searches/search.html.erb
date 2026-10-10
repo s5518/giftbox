@@ -1,9 +1,24 @@
 <div class="container py-5">
   <h2 class="mb-4">検索結果</h2>
 
-  <% if @model == "post" %>
-    <%= render "public/posts/index", posts: @records %>
-  <% elsif @model == "user" %>
-    <%= render "public/users/index", users: @records %>
+  <p class="mb-4">
+    <%= @model == "user" ? "ユーザー" : "投稿" %>の検索結果：
+    <strong><%= @records.count %>件</strong>
+  </p>
+
+  <% if @records.exists? %>
+    <% if @model == "user" %>
+      <%= render "public/users/index", users: @records %>
+    <% else %>
+      <%= render "public/posts/index", posts: @records %>
+    <% end %>
+  <% else %>
+    <div class="text-center py-5">
+      <i class="fa-solid fa-magnifying-glass fa-2x mb-3 text-muted"></i>
+      <h5>該当する検索結果がありません</h5>
+      <p class="text-muted">
+        キーワードを変更して、もう一度検索してみてください。
+      </p>
+    </div>
   <% end %>
 </div>
