@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :comments, only: [ :create, :destroy ]
     end
     resources :bookmarks, only: [ :index ]
+    get "/search", to: "searches#search", as: :search
   end
 
   namespace :admin do

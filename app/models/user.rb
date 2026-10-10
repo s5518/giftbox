@@ -11,4 +11,10 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_one_attached :profile_image
+
+  def self.search_for(content)
+    return all if content.blank?
+
+    where("name LIKE ?", "%#{content}%")
+  end
 end

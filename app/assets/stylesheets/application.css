@@ -1,12 +1,11 @@
 body {
-  background-color: #f8f4d5;
+  background-color: #F7F1EA;
   color: #3D3D3D;
 }
 
 /* ヘッダー */
 .gift-header {
   background-color: #FFFFFF;
-  border-bottom: 1px solid #F3E8E2;
 }
 
 /* ロゴ */
@@ -158,4 +157,66 @@ body {
   object-fit: contain;
   border: 1px solid #F0ECE8;
   border-radius: 4px;
+}
+
+/* 検索バー背景 */
+.search-area {
+  background-color: #F7F1EA;
+}
+
+/* 検索バー全体 */
+.search-bar-container {
+  max-width: 500px;
+  margin: 15px 5% 0 auto;
+}
+
+/* 検索フォーム */
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-select,
+.search-input,
+.search-button {
+  height: 30px;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+.search-select,
+.search-input {
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  padding: 0 18px;
+  color: #3d3d3d;
+}
+
+/* プルダウン */
+.search-select {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+/* キーワード入力欄 */
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 検索ボタン */
+.search-button {
+  width: 100px;
+  flex-shrink: 0;
+  border: none;
+  background-color: #b6aaaa;
+  color: #675858;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-button:hover {
+  background-color: #5c9bbc;
+  color: #fff;
 }

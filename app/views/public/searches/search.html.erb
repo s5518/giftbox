@@ -1,0 +1,9 @@
+<div class="container py-5">
+  <h2 class="mb-4">検索結果</h2>
+
+  <% if @model == "post" %>
+    <%= render "public/posts/index", posts: @records %>
+  <% elsif @model == "user" %>
+    <%= render "public/users/index", users: @records %>
+  <% end %>
+</div>
