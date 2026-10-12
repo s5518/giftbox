@@ -39,7 +39,7 @@
         </p>
 
         <% if @post.user == current_user %>
-          <div class="d-flex gap-3 mt-4">
+          <div class="d-flex gap-3 mt-4 mb-4">
             <%= link_to "編集する", edit_post_path(@post), class: "btn btn-gift" %>
             <%= link_to "削除する", post_path(@post),
                         data: {
@@ -49,6 +49,13 @@
                         class: "btn btn-outline-danger rounded-pill" %>
           </div>
         <% end %>
+
+        <div id="comments">
+          <%= render "public/comments/index", post: @post %>
+        </div>
+        <div id="comment_form">
+          <%= render "public/comments/form", post: @post, comment: @comment %>
+        </div>
 
       </div>
 

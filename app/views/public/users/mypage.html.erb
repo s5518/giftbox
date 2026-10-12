@@ -37,25 +37,30 @@
         <div class="gift-card p-2">
 
           <!-- 画像部分 -->
-          <% if post.image.attached? %>
-            <%= image_tag post.image, class: "gift-card-image" %>
-          <% else %>
-            <div class="gift-card-no-image">
-              <%= image_tag "image.PNG", alt: "NO IMAGE", class: "gift-card-image" %>
-            </div>
+          <%= link_to post_path(post) do %>
+            <% if post.image.attached? %>
+              <%= image_tag post.image, class: "gift-card-image" %>
+            <% else %>
+              <div class="gift-card-no-image">
+                <%= image_tag "image.PNG", alt: "NO IMAGE", class: "gift-card-image" %>
+              </div>
+            <% end %>
           <% end %>
+
 
           <!-- アイテム説明部分 -->
           <div class="gift-card-body ms-2">
 
             <h5 class="mt-2">
-              <%= link_to post.gift_name,
-                          post_path(post),
-                          class: "gift-card-title" %>
+              <%= link_to post.gift_name, post_path(post), class: "gift-card-title" %>
             </h5>
 
             <p>受け取った人：<%= post.age %>歳</p>
             <p>¥<%= number_with_delimiter(post.price) %></p>
+            <p>
+              <i class="fa-regular fa-comment"></i>
+              <span><%= post.comments.count %></span>
+            </p>
           </div>
 
         </div>
