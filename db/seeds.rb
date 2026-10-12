@@ -1,8 +1,20 @@
 
 # GiftBox サンプルデータ
+
+# 管理者アカウント
+admin_email = ENV.fetch("ADMIN_EMAIL")
+admin_password = ENV.fetch("ADMIN_PASSWORD")
+
+Admin.find_or_create_by!(email: admin_email) do |admin|
+  admin.password = admin_password
+  admin.password_confirmation = admin_password
+end
+
+puts "管理者アカウントを確認しました！"
 # 架空のユーザーとレビューを登録する
 
 seed_password = ENV.fetch("SEED_USER_PASSWORD")
+
 
 # サンプルユーザー
 sakura = User.find_or_create_by!(email: "sakura@example.com") do |user|
