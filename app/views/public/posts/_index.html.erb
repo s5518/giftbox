@@ -3,10 +3,12 @@
     <div class="col-6 col-md-4 col-lg-3">
       <div class="gift-card p-2">
 
-        <% if post.image.attached? %>
-          <%= image_tag post.image, class: "gift-card-image" %>
-        <% else %>
-          <%= image_tag "image.PNG", class: "gift-card-image" %>
+        <%= link_to post_path(post) do %>
+          <% if post.image.attached? %>
+            <%= image_tag post.image, class: "gift-card-image" %>
+          <% else %>
+            <%= image_tag "image.PNG", class: "gift-card-image" %>
+          <% end %>
         <% end %>
 
         <div class="gift-card-body ms-2">
@@ -16,8 +18,12 @@
 
           <p class="mb-1">受け取った人：<%= post.age %>歳</p>
           <p class="mb-1">¥<%= number_with_delimiter(post.price) %></p>
-          <p class="mb-0">
+          <p class="mb-1">
             投稿者：<%= link_to post.user.name, user_path(post.user) %>
+          </p>
+          <p>
+            <i class="fa-regular fa-comment"></i>
+            <span><%= post.comments.count %></span>
           </p>
         </div>
 

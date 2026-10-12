@@ -1,0 +1,3 @@
+<%= turbo_stream.update "comments" do %>
+  <%= render "public/comments/index", post: @post %>
+<% end %>

@@ -1,0 +1,26 @@
+<% post.comments.each do |comment| %>
+  <div class="comment-item px-3 py-2 mb-2">
+
+    <div class="d-flex justify-content-between align-items-center mb-1">
+      <span class="fw-bold">
+        <%= comment.user.name %>
+      </span>
+
+      <small class="text-muted">
+        <%= comment.created_at.strftime("%Y/%m/%d") %>
+      </small>
+    </div>
+
+    <p class="comment-content mb-1"><%= comment.content %></p>
+
+    <% if comment.user == current_user %>
+      <div class="text-end">
+        <%= link_to "削除",
+            post_comment_path(post, comment),
+            data: { turbo_method: :delete },
+            class: "text-danger small text-decoration-none" %>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<div class="mt-4">
+  <h5 class="mb-3">コメントを投稿する</h5>
+
+  <%= form_with model: [post, comment] do |f| %>
+    <%= f.text_area :content, placeholder: "コメントをここに入力してください",
+                              class: "form-control comment-textarea mb-3", rows: 3 %>
+
+    <div class="text-end">
+      <%= f.submit "送信する", class: "btn btn-gift-outline rounded-pill px-4" %>
+    </div>
+  <% end %>
+</div>

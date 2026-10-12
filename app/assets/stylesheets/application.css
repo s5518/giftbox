@@ -220,3 +220,20 @@ body {
   background-color: #5c9bbc;
   color: #fff;
 }
+
+.comment-item {
+  background-color: #f8f6f3;
+  border-radius: 10px;
+  border: 1px solid #e9e5e0;
+}
+
+.comment-content {
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.comment-textarea {
+  resize: vertical;
+  border-radius: 8px;
+}
