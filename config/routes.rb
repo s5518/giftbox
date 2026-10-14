@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "homes#top"
   get "/about", to: "homes#about"
-  devise_for :admins, skip: [:registrations]
+  devise_for :admins, skip: [ :registrations ]
   devise_for :users
 
   scope module: :public do
