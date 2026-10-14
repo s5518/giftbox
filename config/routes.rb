@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "homes#top"
   get "/about", to: "homes#about"
-  devise_for :admins
+  devise_for :admins, skip: [ :registrations ]
   devise_for :users
 
   scope module: :public do
@@ -16,10 +16,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root "homes#top"
+    root "posts#index"
     resources :users, only: [ :index, :show, :destroy ]
     resources :posts, only: [ :index, :show, :destroy ]
-    resources :tags
+    resources :tags, except: [ :new, :show ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
