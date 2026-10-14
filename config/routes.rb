@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     root "posts#index"
     resources :users, only: [ :index, :show, :destroy ]
     resources :posts, only: [ :index, :show, :destroy ]
-    resources :tags, except: [:show]
+    resources :tags, except: [ :new, :show ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

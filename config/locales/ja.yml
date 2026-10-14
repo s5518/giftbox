@@ -30,6 +30,9 @@ ja:
         content: レビュー内容
         age: 年齢
         price: 金額
+      tag:
+        name: タグ名
+        category: カテゴリー
 
   errors:
     format: "%{attribute}%{message}"

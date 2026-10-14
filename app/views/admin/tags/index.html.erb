@@ -1,0 +1,68 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h2 class="mb-4">タグ新規登録</h2>
+
+      <% if @tag.errors.any? %>
+        <div class="alert alert-danger">
+          <p>入力内容にエラーがあります。</p>
+          <ul class="mb-0">
+            <% @tag.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_with model: @tag, url: admin_tags_path do |f| %>
+        <div class="row align-items-end g-3 mb-4">
+          <div class="col-md-3">
+            <%= f.label :category, "カテゴリー", class: "form-label" %>
+            <%= f.select :category, [["関係性","関係性"], ["種類","種類"], ["シーン","シーン"]],
+                                    { include_blank: "選択して下さい" }, { class: "form-select" } %>
+          </div>
+          <div class="col-md-5">
+            <%= f.label :name, "タグ名", class: "form-label" %>
+            <%= f.text_field :name, class: "form-control"  %>
+          </div>
+          <div class="col-md-2">
+            <%= f.submit "登録", class: "btn btn-sm btn-gift-outline" %>
+          </div>
+        </div>
+      <% end %>
+
+
+      <h2 class="mt-4 mb-4">登録済みタグ一覧</h2>
+
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>カテゴリー</th>
+            <th>タグ名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag| %>
+            <tr>
+              <td><%= tag.id %></td>
+              <td><%= tag.category %></td>
+              <td><%= tag.name %></td>
+              <td>
+                <%= link_to "編集", edit_admin_tag_path(tag), class: "btn btn-outline-secondary rounded-pill" %>
+
+                <%= link_to "削除", admin_tag_path(tag), data: {
+                                                          turbo_method: :delete,
+                                                          turbo_confirm: "本当にこのタグを削除しますか？"
+                                                        },class: "btn btn-outline-danger rounded-pill" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= link_to "トップページに戻る", admin_posts_path, class: "btn btn-outline-secondary rounded-pill" %>
+    </div>
+  </div>
+</div>
