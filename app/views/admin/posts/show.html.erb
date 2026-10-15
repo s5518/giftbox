@@ -49,7 +49,7 @@
         </div>
 
         <div id="comments">
-          <%= render "public/comments/index", post: @post %>
+          <%= render "public/comments/index", post: @post, admin_view: true %>
         </div>
 
         <%= link_to "一覧に戻る", admin_posts_path,

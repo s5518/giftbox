@@ -13,7 +13,7 @@
 
     <p class="comment-content mb-1"><%= comment.content %></p>
 
-    <% if comment.user == current_user %>
+    <% if !local_assigns.fetch(:admin_view, false) && comment.user == current_user %>
       <div class="text-end">
         <%= link_to "削除",
             post_comment_path(post, comment),

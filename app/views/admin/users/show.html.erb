@@ -27,10 +27,10 @@
         </tr>
       </table>
 
-      <%= link_to "ユーザーを削除", admin_user_path(@user),
+      <%= link_to "ユーザーを退会させる", admin_user_path(@user),
             data: {
               turbo_method: :delete,
-              turbo_confirm: "本当にこのユーザーを削除しますか？"
+              turbo_confirm: "このユーザーを退会させますか？ この操作は取り消せません。"
             },
             class: "btn btn-outline-danger rounded-pill" %>
 
