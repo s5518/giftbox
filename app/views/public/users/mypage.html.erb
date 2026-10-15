@@ -57,6 +57,7 @@
 
             <p>受け取った人：<%= post.age %>歳</p>
             <p>¥<%= number_with_delimiter(post.price) %></p>
+            <p><%= render "public/posts/tags", post: post %></p>
             <p>
               <i class="fa-regular fa-comment"></i>
               <span><%= post.comments.count %></span>

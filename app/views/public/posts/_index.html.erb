@@ -21,6 +21,9 @@
           <p class="mb-1">
             投稿者：<%= link_to post.user.name, user_path(post.user) %>
           </p>
+
+          <p><%= render "public/posts/tags", post: post %></p>
+          
           <p>
             <i class="fa-regular fa-comment"></i>
             <span><%= post.comments.count %></span>
