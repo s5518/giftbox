@@ -13,6 +13,7 @@ class Public::PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tags = Tag.all
   end
 
   def create
@@ -21,12 +22,14 @@ class Public::PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
+      @tags = Tag.all
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
     @post = Post.find(params[:id])
+    @tags = Tag.all
   end
 
   def update
@@ -34,6 +37,7 @@ class Public::PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
+      @tags = Tag.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -54,6 +58,6 @@ class Public::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:gift_name, :content, :rating, :age, :price, :image)
+    params.require(:post).permit(:gift_name, :content, :rating, :age, :price, :image, tag_ids: [])
   end
 end

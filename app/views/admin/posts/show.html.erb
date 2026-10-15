@@ -38,6 +38,8 @@
           投稿者：<%= link_to @post.user.name, admin_user_path(@post.user) %>
         </p>
 
+        <p><%= render "public/posts/tags", post: @post %></p>
+
         <div class="d-flex gap-3 mt-4 mb-4">
           <%= link_to "削除する", admin_post_path(@post),
                                  data: {

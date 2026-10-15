@@ -38,6 +38,8 @@
           投稿者：<%= link_to @post.user.name, user_path(@post.user) %>
         </p>
 
+        <p><%= render "public/posts/tags", post: @post %></p>
+
         <% if @post.user == current_user %>
           <div class="d-flex gap-3 mt-4 mb-4">
             <%= link_to "編集する", edit_post_path(@post), class: "btn btn-gift" %>
