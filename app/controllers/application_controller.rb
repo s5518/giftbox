@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(Admin)
       admin_root_path
     else
-      mypage_path
+      user_path(current_user)
     end
   end
 

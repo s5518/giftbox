@@ -2,11 +2,6 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [ :edit, :update, :destroy ]
 
-  def mypage
-    @user = current_user
-    @posts = @user.posts
-  end
-
   def index
     @users = User.all
   end
@@ -23,7 +18,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to mypage_path
+      redirect_to user_path(current_user)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +35,7 @@ class Public::UsersController < ApplicationController
   def ensure_correct_user
     @user = User.find(params[:id])
     unless @user == current_user
-      redirect_to mypage_path
+      redirect_to user_path(current_user)
     end
   end
 
