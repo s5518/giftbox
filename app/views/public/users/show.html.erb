@@ -55,6 +55,8 @@
               <%= link_to post.gift_name,post_path(post),class: "gift-card-title" %>
             </h5>
 
+            <%= render "public/posts/rating", post: post %>
+
             <p>受け取った人：<%= post.age %>歳</p>
             <p>¥<%= number_with_delimiter(post.price) %></p>
             <p><%= render "public/posts/tags", post: post %></p>
