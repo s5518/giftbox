@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get "/about", to: "homes#about"
   devise_for :admins, skip: [ :registrations ]
   devise_for :users
+  devise_scope :user do
+    post "guest_sign_in", to: "public/guest_sessions#create", as: :guest_sign_in
+  end
 
   scope module: :public do
     resources :users, only: [ :index, :show, :edit, :update, :destroy ]

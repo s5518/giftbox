@@ -16,10 +16,12 @@
       そんなプレゼントの思い出をシェアするレビューサイトです。
     </p>
 
-    <div class="d-flex justify-content-center gap-3">
+    <div class="d-flex justify-content-center gap-3 mb-4">
       <%= link_to "新規登録", new_user_registration_path, class: "btn btn-gift" %>
       <%= link_to "ログイン", new_user_session_path, class: "btn btn-gift-outline" %>
     </div>
+    
+    <%= button_to "ゲストログイン（閲覧用）", guest_sign_in_path, class: "btn btn-outline-secondary" %>
 
   </div>
 

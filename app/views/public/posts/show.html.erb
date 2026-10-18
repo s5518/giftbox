@@ -57,9 +57,11 @@
         <div id="comments">
           <%= render "public/comments/index", post: @post %>
         </div>
-        <div id="comment_form">
-          <%= render "public/comments/form", post: @post, comment: @comment %>
-        </div>
+        <% unless current_user.guest_user? %>
+          <div id="comment_form">
+            <%= render "public/comments/form", post: @post, comment: @comment %>
+          </div>
+        <% end %>
 
       </div>
 
