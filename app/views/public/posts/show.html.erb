@@ -32,7 +32,9 @@
           <h5>レビュー内容</h5>
           <hr>
           <p><%= simple_format(@post.content) %></p>
+          
           <%= render "public/posts/rating", post: @post %>
+        </div>
 
         <p class="mt-4">
           投稿者：<%= link_to @post.user.name, user_path(@post.user) %>
