@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [ :edit, :update, :destroy ]
+  before_action :ensure_guest_user, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
     @posts = Post.all
@@ -54,6 +55,12 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     unless @post.user == current_user
       redirect_to posts_path
+    end
+  end
+
+  def ensure_guest_user
+    if current_user.guest_user?
+      redirect_to posts_path, alert: "ゲストユーザーはこの操作を行えません。"
     end
   end
 

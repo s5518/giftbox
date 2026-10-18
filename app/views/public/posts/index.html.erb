@@ -1,7 +1,9 @@
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="mb-0">投稿一覧</h2>
-    <%= link_to "＋ 新規投稿", new_post_path, class: "btn btn-gift" %>
+    <% unless current_user.guest_user? %>
+      <%= link_to "＋ 新規投稿", new_post_path, class: "btn btn-gift" %>
+    <% end %>
   </div>
 
   <%= render "public/posts/index", posts: @posts %>

@@ -1,5 +1,6 @@
 class Public::CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_guest_user, only: [ :create, :destroy ]
 
   def create
     @post = Post.find(params[:post_id])
@@ -28,6 +29,12 @@ class Public::CommentsController < ApplicationController
   end
 
   private
+
+  def ensure_guest_user
+    if current_user.guest_user?
+      redirect_to posts_path, alert: "ゲストユーザーはこの操作を行えません。", status: :see_other
+    end
+  end
 
   def comment_params
     params.require(:comment).permit(:content)
