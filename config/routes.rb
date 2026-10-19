@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     end
     resources :bookmarks, only: [ :index ]
     get "/search", to: "searches#search", as: :search
-    get "search_tag" => "searches#search_tag"
   end
 
   namespace :admin do

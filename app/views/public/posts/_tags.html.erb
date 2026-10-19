@@ -3,7 +3,7 @@
     <div class="d-flex flex-wrap gap-2">
       <% post.tags.each do |tag| %>
         <span class="badge rounded-pill bg-light text-dark border">
-          <%= tag.name %>
+          <%= link_to tag.name, search_path(model: "tag", content: tag.name), class: "link-secondary text-decoration-none" %>
         </span>
       <% end %>
     </div>
