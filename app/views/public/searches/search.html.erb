@@ -2,7 +2,13 @@
   <h2 class="mb-4">検索結果</h2>
 
   <p class="mb-4">
-    <%= @model == "user" ? "ユーザー" : "投稿" %>の検索結果：
+    <% if @model == "user" %>
+      ユーザー
+    <% elsif @model == "tag" %>
+      タグ
+    <% else %>
+      投稿
+    <% end %>の検索結果：
     <strong><%= @records.count %>件</strong>
   </p>
 
