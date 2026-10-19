@@ -3,11 +3,11 @@
 
   <p class="mb-4">
     <% if @model == "user" %>
-      <%= "ユーザー" %>
+      ユーザー
     <% elsif @model == "tag" %>
-      <%= "タグ" %>
+      タグ
     <% else %>
-      <%= "投稿" %>
+      投稿
     <% end %>の検索結果：
     <strong><%= @records.count %>件</strong>
   </p>

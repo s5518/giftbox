@@ -7,7 +7,7 @@ class Public::SearchesController < ApplicationController
 
     if @model == "user"
       @records = User.search_for(@content)
-    elsif @model = "tag"
+    elsif @model == "tag"
       @records = Post.joins(:tags).where("tags.name LIKE ?", "%#{@content}%").distinct
     else
       @records = Post.search_for(@content)
