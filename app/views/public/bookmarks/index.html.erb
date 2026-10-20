@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <h2 class="mb-4">ブックマーク一覧</h2>
+
+  <% if @posts.exists? %>
+    <%= render "public/posts/index", posts: @posts %>
+  <% else %>
+    <div class="text-center py-5">
+      <i class="fa-solid fa-bookmark fa-2x mb-3 text-muted"></i>
+      <h5>保存した投稿がありません</h5>
+      <% if current_user.guest_user? %>
+        <p>会員登録すると、お気に入りの投稿を保存して、いつでも見返せます。</p>
+        <%= button_to "会員登録をして利用する", guest_to_registration_path, method: :post, class: "btn btn-gift-outline" %>
+      <% else %>
+        <p>お気に入りの投稿を保存してみよう！</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
