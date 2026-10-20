@@ -3,6 +3,10 @@ class Public::BookmarksController < ApplicationController
   before_action :set_post, only: [:create, :destroy]
   before_action :ensure_guest_user, only: [ :create, :destroy ]
 
+  def index
+    @posts = current_user.bookmarked_posts
+  end
+
   def create
     @bookmark = @post.bookmarks.create(user: current_user)
     respond_to do |format|
