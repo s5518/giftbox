@@ -4,7 +4,12 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
 
-      <div class="gift-panel">
+      <div class="gift-panel position-relative">
+        <div class="position-absolute top-0 end-0 p-3">
+          <%= turbo_frame_tag dom_id(@post, :bookmarks) do %>
+            <%= render "public/bookmarks/button", post: @post %>
+          <% end %>
+        </div>
 
         <div class="row align-items-center">
 
