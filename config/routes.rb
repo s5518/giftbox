@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     post "guest_sign_in", to: "public/guest_sessions#create", as: :guest_sign_in
+    post "guest_to_registration", to: "public/guest_sessions#new_registration", as: :guest_to_registration
   end
 
   scope module: :public do
