@@ -21,7 +21,7 @@
           <p class="mb-1">受け取った人：<%= post.age %>歳</p>
           <p class="mb-1">¥<%= number_with_delimiter(post.price) %></p>
           <p class="mb-1">
-            投稿者：<%= link_to post.user.name, user_path(post.user) %>
+            投稿者：<%= link_to post.user.name, user_path(post.user), class: "text-secondary" %>
           </p>
 
           <p><%= render "public/posts/tags", post: post %></p>

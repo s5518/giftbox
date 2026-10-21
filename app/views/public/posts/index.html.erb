@@ -1,6 +1,12 @@
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-0">投稿一覧</h2>
+    <div class="d-flex align-items-center">
+      <h2 class="mb-0">投稿一覧</h2>
+      <div class="ms-3 mt-3">
+        <%= link_to "評価の高い順", posts_path(star_count: "true"), class: "text-secondary #{params[:star_count] ? 'fw-bold' : ''}" %> |
+        <%= link_to "新着順", posts_path, class: "text-secondary #{params[:star_count] ? '' : 'fw-bold'}" %>
+      </div> 
+    </div>
     <% unless current_user.guest_user? %>
       <%= link_to "＋ 新規投稿", new_post_path, class: "btn btn-gift" %>
     <% end %>
