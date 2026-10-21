@@ -4,7 +4,11 @@ class Public::PostsController < ApplicationController
   before_action :ensure_guest_user, only: [ :new, :create, :edit, :update, :destroy ]
 
   def index
-    @posts = Post.all
+    if params[:star_count]
+      @posts = Post.all.order(rating: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
   end
 
   def show
