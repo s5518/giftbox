@@ -47,7 +47,6 @@ class Public::UsersController < ApplicationController
     if current_user.guest_user?
       redirect_to user_path(current_user), notice: "ゲストユーザーはこの操作を行えません。", status: :see_other
     end
-
   end
 
   def user_params

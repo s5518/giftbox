@@ -2,7 +2,7 @@ class Public::BookmarksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [ :create, :destroy ]
   before_action :ensure_guest_user, only: [ :create, :destroy ]
-  before_action :ensure_not_own_post, only: [:create]
+  before_action :ensure_not_own_post, only: [ :create ]
 
   def index
     @posts = current_user.bookmarked_posts

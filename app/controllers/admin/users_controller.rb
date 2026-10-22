@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :ensure_not_guest_user, only: [:show, :destroy]
+  before_action :ensure_not_guest_user, only: [ :show, :destroy ]
 
   def index
     @users = User.where.not(email: User::GUEST_USER_EMAIL).order(created_at: :desc)
