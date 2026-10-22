@@ -32,6 +32,10 @@ body {
   line-height: 2;
 }
 
+.gift-top-description:hover {
+  color: #5C9BBC;
+}
+
 /* アバウト */
 .gift-about-icon {
   color: #5C9BBC;
@@ -259,7 +263,7 @@ body {
 }
 
 .search-button:hover {
-  background-color: #5c9bbc;
+  background-color: #5C9BBC;
   color: #fff;
 }
 

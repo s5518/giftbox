@@ -11,12 +11,11 @@
       大切な人への贈り物に、ヒントを。
     </h3>
 
-    <p class="gift-top-description mb-5">
-      もらって嬉しかった、贈って喜ばれた。<br>
-      そんなプレゼントの思い出をシェアするレビューサイトです。
-    </p>
+    <%= link_to about_path, class: "gift-top-description text-arline-none" do %>
+      GiftBoxとは？
+    <% end %>
 
-    <div class="d-flex justify-content-center gap-3 mb-4">
+    <div class="d-flex justify-content-center gap-3 mt-4 mb-4">
       <%= link_to "新規登録", new_user_registration_path, class: "btn btn-gift" %>
       <%= link_to "ログイン", new_user_session_path, class: "btn btn-gift-outline" %>
     </div>
