@@ -2,6 +2,7 @@ class Public::BookmarksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [ :create, :destroy ]
   before_action :ensure_guest_user, only: [ :create, :destroy ]
+  before_action :ensure_not_own_post, only: [:create]
 
   def index
     @posts = current_user.bookmarked_posts
@@ -25,6 +26,12 @@ class Public::BookmarksController < ApplicationController
   end
 
   private
+
+  def ensure_not_own_post
+    if @post.user_id == current_user.id
+      redirect_to post_path(@post), alert: "自分の投稿はブックマークできません。", status: :see_other
+    end
+  end
 
   def ensure_guest_user
     if current_user.guest_user?
