@@ -2,35 +2,38 @@
   <h2 class="ms-5 mb-5">
     <%= @user == current_user ? "マイページ" : "ユーザー詳細" %>
   </h2>
+  <div class="profile-card">
+    <div class="profile-card-content">
 
-  <div class="row justify-content-center align-items-center mb-5">
-    <div class="col-md-3 text-center">
       <div class="profile-image-placeholder mx-auto">
         <% if @user.profile_image.attached? %>
           <%= image_tag @user.profile_image, size: "160x160" %>
+        <% else %>
+          <i class="fa-solid fa-user fa-6x"></i>
+        <% end %>
+      </div>
+
+      <div class="profile-info">
+        <h3 class="mb-3"><%= @user.name %></h3>
+
+        <p>
+          <%= @user.introduction.presence || "自己紹介はまだありません" %>
+        </p>
+
+        <% if @user == current_user && !current_user.guest_user? %>
+          <div class="d-flex flex-warp gap-2 mt-3">
+            <%= link_to "プロフィール編集",
+                         edit_user_path(@user),
+                         class: "btn btn-gift-outline mt-2" %>
+
+            <%= link_to "＋ 新規投稿", new_post_path, class: "btn btn-gift mt-2" %>
+          </div>
         <% end %>
       </div>
     </div>
-
-    <div class="col-md-5">
-      <h3 class="mb-3"><%= @user.name %></h3>
-
-      <p>
-        <%= @user.introduction.presence || "自己紹介はまだありません" %>
-      </p>
-
-      <% if @user == current_user && !current_user.guest_user? %>
-        <%= link_to "プロフィール編集",
-                     edit_user_path(@user),
-                     class: "btn btn-gift-outline mt-2" %>
-
-        <%= link_to "＋ 新規投稿", new_post_path, class: "btn btn-gift mt-2" %>
-      <% end %>
-
-    </div>
   </div>
 
-  <h2 class="ms-5 mb-4">投稿したプレゼント</h2>
+  <h2 class="ms-5 mb-4">投稿したレビュー</h2>
 
   <div class="row g-4">
     <% @posts.each do |post| %>

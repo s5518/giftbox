@@ -19,6 +19,7 @@ body {
   color: #E77C7C;
 }
 
+/* トップ */
 .gift-top-title {
   color: #5C9BBC;
   font-size: 56px;
@@ -31,6 +32,11 @@ body {
   line-height: 2;
 }
 
+.gift-top-description:hover {
+  color: #5C9BBC;
+}
+
+/* アバウト */
 .gift-about-icon {
   color: #5C9BBC;
 }
@@ -88,9 +94,10 @@ body {
   color: #FFFFFF;
 }
 
+/* 投稿用 */
 .gift-card {
   background-color: #FFFFFF;
-  padding: 12px 12px 20px;
+  padding: 16px 16px 20px;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(247, 82, 82, 0.12);
 }
@@ -112,6 +119,44 @@ body {
   color: #4B89AA;
 }
 
+/* ユーザー詳細 */
+.profile-card {
+  background-color: #FFFFFF;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(247, 82, 82, 0.08);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+.profile-card-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile-image-placeholder {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ユーザー一覧 */
 .user-card {
   background-color: #FFFFFF;
   border-radius: 15px;
@@ -135,6 +180,7 @@ body {
   background-color: #FFFFFF;
 }
 
+/* 入力画面背景 */
 .gift-panel {
   background-color: #FFFFFF;
   border: 1px solid #E8DED5;
@@ -217,10 +263,11 @@ body {
 }
 
 .search-button:hover {
-  background-color: #5c9bbc;
+  background-color: #5C9BBC;
   color: #fff;
 }
 
+/* コメント */
 .comment-item {
   background-color: #f8f6f3;
   border-radius: 10px;
