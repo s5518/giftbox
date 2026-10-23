@@ -38,16 +38,14 @@
   <div class="row g-4">
     <% @posts.each do |post| %>
       <div class="col-md-3">
-        <div class="gift-card p-2">
+        <div class="gift-card">
 
           <!-- 画像部分 -->
           <%= link_to post_path(post) do %>
             <% if post.image.attached? %>
               <%= image_tag post.image, class: "gift-card-image" %>
             <% else %>
-              <div class="gift-card-no-image">
-                <%= image_tag "image.PNG", alt: "NO IMAGE", class: "gift-card-image" %>
-              </div>
+              <%= image_tag "image.PNG", alt: "NO IMAGE", class: "gift-card-image" %>
             <% end %>
           <% end %>
 
