@@ -22,7 +22,7 @@ SNSなどで年齢や予算別のプレゼントをまとめた投稿を参考�
 
 ​
 ## 設計書
-後ほど作成予定
+[GiftBox 設計書](https://drive.google.com/drive/folders/135jEoenjYrEYKTxsYbgIVi3eHIXx43h3)
 ​
 ## 開発環境
 - OS：Windows
@@ -32,5 +32,8 @@ SNSなどで年齢や予算別のプレゼントをまとめた投稿を参考�
 - IDE：Visual Studio Code（VSCode）
 ​
 ## 使用素材
-著作権を考慮し、架空のデータを扱う予定です。
-なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。
+- ロゴ：生成AIを利用して作成
+- NO IMAGE画像：自作
+- アイコン：Font Awesome
+
+開発・動作確認用のサンプルデータには、架空の情報を使用しています。
