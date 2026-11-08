@@ -18,6 +18,7 @@ document.addEventListener("turbo:load", () => {
   }
 
   const showElems = document.querySelectorAll(".show_raty");
+
   if (showElems.length > 0) {
     showElems.forEach((elem) => {
     elem.innerHTML = "";

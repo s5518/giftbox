@@ -5,9 +5,9 @@ class Public::PostsController < ApplicationController
 
   def index
     if params[:star_count]
-      @posts = Post.all.order(rating: :desc)
+      @posts = Post.order(rating: :desc, created_at: :desc)
     else
-      @posts = Post.all.order(created_at: :desc)
+      @posts = Post.order(created_at: :desc)
     end
   end
 
@@ -33,12 +33,10 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     @tags = Tag.all
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
@@ -48,7 +46,6 @@ class Public::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end

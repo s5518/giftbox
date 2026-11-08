@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-5">
             <%= f.label :name, "タグ名", class: "form-label" %>
-            <%= f.text_field :name, class: "form-control"  %>
+            <%= f.text_field :name, class: "form-control" %>
           </div>
           <div class="col-md-2">
             <%= f.submit "登録", class: "btn btn-sm btn-gift-outline" %>
@@ -52,10 +52,12 @@
               <td>
                 <%= link_to "編集", edit_admin_tag_path(tag), class: "btn btn-outline-secondary rounded-pill" %>
 
-                <%= link_to "削除", admin_tag_path(tag), data: {
-                                                          turbo_method: :delete,
-                                                          turbo_confirm: "本当にこのタグを削除しますか？"
-                                                        },class: "btn btn-outline-danger rounded-pill" %>
+                <%= link_to "削除", admin_tag_path(tag),
+                            data: {
+                              turbo_method: :delete,
+                              turbo_confirm: "本当にこのタグを削除しますか？"
+                            },
+                            class: "btn btn-outline-danger rounded-pill" %>
               </td>
             </tr>
           <% end %>

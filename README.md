@@ -25,10 +25,10 @@ SNSなどで年齢や予算別のプレゼントをまとめた投稿を参考�
 [GiftBox 設計書](https://drive.google.com/drive/folders/135jEoenjYrEYKTxsYbgIVi3eHIXx43h3)
 ​
 ## 開発環境
-- OS：Windows
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
+- OS：Linux（Ubuntu 26.04 LTS）
+- 言語：HTML、CSS、JavaScript、Ruby、SQL
+- フレームワーク：Ruby on Rails 8
+- JSライブラリ：Raty
 - IDE：Visual Studio Code（VSCode）
 ​
 ## 使用素材

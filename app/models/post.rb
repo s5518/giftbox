@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
   validates :age, presence: true
   validates :price, presence: true
-  validates :rating, inclusion: { in: 0.5..5.0 }, allow_blank: true
+  validates :rating, presence: true, inclusion: { in: 0.5..5.0, allow_blank: true }
 
   has_one_attached :image
 

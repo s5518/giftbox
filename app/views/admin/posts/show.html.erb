@@ -32,6 +32,8 @@
           <h5>レビュー内容</h5>
           <hr>
           <p><%= simple_format(@post.content) %></p>
+
+          <%= render "public/posts/rating", post: @post %>
         </div>
 
         <p class="mt-4">
@@ -42,10 +44,11 @@
 
         <div class="d-flex gap-3 mt-4 mb-4">
           <%= link_to "削除する", admin_post_path(@post),
-                                 data: {
-                                  turbo_method: :delete,
-                                  turbo_confirm: "本当に削除しますか？"
-                                 },class: "btn btn-outline-danger rounded-pill" %>
+                      data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "本当に削除しますか？"
+                      },
+                      class: "btn btn-outline-danger rounded-pill" %>
         </div>
 
         <div id="comments">
