@@ -24,7 +24,7 @@
                 <%= user.email %>
               </td>
               <td>
-                <%= user.created_at.strftime('%m/%d') %>
+                <%= user.created_at.strftime('%Y/%m/%d') %>
               </td>
               <td>
                 <%= link_to "削除", admin_user_path(user),

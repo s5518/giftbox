@@ -9,10 +9,10 @@ class Public::BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = @post.bookmarks.create(user: current_user)
+    @bookmark = @post.bookmarks.find_or_create_by(user: current_user)
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to request.referrer }
+      format.html { redirect_back fallback_location: post_path(@post) }
     end
   end
 
@@ -21,7 +21,7 @@ class Public::BookmarksController < ApplicationController
     @bookmark.destroy if @bookmark
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to request.referrer }
+      format.html { redirect_back fallback_location: post_path(@post) }
     end
   end
 
