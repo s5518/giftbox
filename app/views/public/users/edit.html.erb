@@ -17,7 +17,7 @@
           <% end %>
 
           <div class="text-center mb-4">
-            <% if @user.profile_image.attached? %>
+            <% if @user.profile_image.attached? && @user.profile_image.blob.persisted? %>
               <%= image_tag @user.profile_image, class: "image" %>
             <% end %>
           </div>
