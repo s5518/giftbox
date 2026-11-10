@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="text-center mb-4">
-    <% if post.image.attached? %>
-      <%= image_tag post.image, class: "image"%>
+    <% if post.persisted? && post.image.attached? && post.image.blob.persisted? %>
+      <%= image_tag post.image, class: "image" %>
     <% end %>
   </div>
 
